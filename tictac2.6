@@ -1,0 +1,84 @@
+.\" TicTac2:  Simple TicTacToe two-player game against another user or cpu.  
+.\" Copyright (c) 1995 Ian Singh                                             
+.\"                                                                         
+.\" This program is free software; you can redistribute it and/or modify it
+.\"under the terms  of the  GNU General Public License as published by the  
+.\"Free Software Foundation;  either version 2 of the License, or (at your  
+.\"option) any version later.                                               
+.\"
+.\"This program is distriubted in the hope that it  will  be  useful,  but  
+.\"WITHOUT   ANY   WARRANTY;   without   even   the  implied  warranty  of  
+.\"MERCHANTABILITY or FITNESS FOR  A  PARTICULAR  PURPOSE.   See  the  GNU  
+.\"General Public License for more details.                                 
+.\"                                                                         
+.\"You should have received a copy of the GNU General Public License along  
+.\"with  this  program;   if not,  write  to the Free Software Foundation,  
+.\"Inc.,  675 Mass Ave, Cambridge, MA 02139, USA.                           
+.\"                                                                         
+.\"Ian Singh                           Ian Singh                          
+.\"am256@freenet.carleton.ca           3G Arnold Dr.                       
+.\"                                    Nepean, Ontario                      
+.\"                                    K2H 6V6                             
+.\"
+.\"	@(#)tictac2.6	0.6 (Ian Singh) 5/24/95
+.\"
+.TH TICTAC2 6 "May 24, 1995"
+.UC 4
+.SH NAME
+tictac2 \- play tictactoe against computerized opponent, another user on
+the system, and, of course, yourself. ;) 
+.SH SYNOPSIS
+.ft B
+tictac2 cpu,me,user [user,tty]
+.ft R
+.SH DESCRIPTION
+.I Tictac2 
+is the game
+.IR "tictactoe" 
+or, if you will, X'S and O'S
+a traditional childrens pad and pencil game.
+.SH VERSION
+The current version is 0.6
+.PP
+You will get to move first, use the cursor keys 
+to select your move.  When the box you want to move in is
+hi-lighted press the enter key.  That will place an X in the box
+you selected. The objective of the game is
+to have 3 X'S in a row, either vertically, horizontally, or
+diagonally.  
+.PP
+The options are as follows:
+.TP
+\-cpu
+Play-Against-Computer mode.
+.PP
+The computer will act as the second player.  The computer will
+first check to see if it can win by making a move.  If it can't
+it will try to block you from winning.  If it doesn't it will go
+into a random section defined by the computer_moves[] array in 
+.IR ai.c.   
+Watch out, he's pretty sneaky ;).
+.TP
+\-me
+Play-Against-Yourself mode.
+.PP
+You will act both as the first player and the second player.  Once you
+make your first move, it will prompt you to make another move to make
+the second player's move.  Ya. It's lots of fun...
+.TP
+\-user
+.PP
+Sorry guys, I haven't finished this yet because I can't find any stuff
+on sending messages between users on linux systems'. If you have any of
+this information, please send it to me and I'll be happy. 
+.PP
+When a player wins the game by having 3 X's or O's in a row, it will show you 
+a message and quit.  You have to run tictac2 again to play the game again.
+you will have to press a key to quit.  It will show you the GNU
+license before quitting.
+.SH BUGS
+Sometimes the game will call a winner when no-one has won yet.
+.PP
+If you found a bug please send me E-Mail.
+.SH CONTACT
+My current E-Mail Address is am256@freenet.carleton.ca

@@ -1,0 +1,18 @@
+Hi guys.  Thanks for getting TicTac2.  This should have came with
+a compiled exacutable.  Please edit the Makefile for all of the
+directories.  Type "make install" and it will install it to whereever.
+To compile it your self you will need the ncurses library installed
+in your system. If you want to change the computer's moves edit the
+file ai.c. type "make clean; make" to recompile it. You'll have to run
+"make install" again to install the new binaries. Don't forget to login
+root before installing. Play against other users
+doesn't work. Sorry.
+
+Also if you have any questions, comments or other stuff drop me a line
+at am256@freenet.carleton.ca  
+
+P.S. If you have any information on how to  send messages to other users
+please send it to me.  Thx.
+
+Bye!
+
