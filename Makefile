@@ -12,7 +12,7 @@ SRCS=	screen.c main.c moves.c ai.c
 	
 OBJS=	screen.o main.o moves.o ai.c
 
-LIBS=	-lncurses -ltermcap 
+LIBS=	-lncurses
 
 all:	$(PROG)
 

@@ -29,7 +29,7 @@
 ** |  Some screen/curses routines for my game.  			   | **
 ** +-----------------------------------------------------------------------+ */
 
-#include <ncurses/ncurses.h>
+#include <ncurses.h>
 #include <string.h>
 #include "tictac2.h"
 #include "screen.h"

@@ -29,7 +29,7 @@
 ** +-----------------------------------------------------------------------+ */
 
 #include <stdio.h>
-#include <ncurses/ncurses.h>
+#include <ncurses.h>
 #include "tictac2.h"
 #include "screen.h"
 #include "moves.h"
