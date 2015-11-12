@@ -1,30 +1,31 @@
-# make file for tictac2.  edit to needs.
+PROG = tictac2
 
-PROG= tictac2
+DESTDIR =/usr/games
+LIBDIR  = $(DESTDIR)/lib
+MANDIR  = /usr/man/man6
 
-DESTDIR=/usr/games
-LIBDIR= $(DESTDIR)/lib
-MANDIR= /usr/man/man6
-CC=     gcc
-CFLAGS= -O -I/usr/include/ncurses
+CC     ?= gcc
+CFLAGS ?= -O
+CFLAGS += $(shell ncurses5-config --cflags)
+LIBS   += $(shell ncurses5-config --libs)
 
-SRCS=	screen.c main.c moves.c ai.c 
-	
-OBJS=	screen.o main.o moves.o ai.c
+SRCS = $(wildcard *.c)
+OBJS = $(SRCS:.c=.o)
+DEPS = tictac2.h
 
-LIBS=	-lncurses
+all: $(PROG)
+.PHONY: all
 
-all:	$(PROG)
+$(PROG): $(OBJS)
+	$(CC) -o $@ $^ $(CFLAGS) $(LIBS)
 
-$(PROG):	$(OBJS)
-	$(CC) $(OBJS) $(LIBS) -o $(PROG)
+%.o: %.c $(DEPS)
 
-$(OBJS):        tictac2.h	
-	$(CC) $(CFLAGS) -c $*.c -o $@
-
-install:	all
+install: all
 	install -c -o bin -g root -m 755 $(PROG) $(DESTDIR)
 	install -c -o root -g root -m 444 $(PROG).6 $(MANDIR)
+.PHONY: install
 
 clean:
-	rm -f $(PROG) core *.o
+	$(RM) $(PROG) $(OBJS)
+.PHONY: clean
