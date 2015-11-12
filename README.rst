@@ -4,6 +4,9 @@ TicTac2
 
 *Simple TicTacToe two-player game against another user or cpu.*
 
+.. figure:: tictac2.png
+
+
 .. contents:: **Contents**
    :local:
 
