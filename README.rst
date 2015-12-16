@@ -21,7 +21,8 @@ TicTac2 was written by Ian Singh in 1995 and the last known release, Version
 .. _original-README: README
 
 In November, 2015, `Grandpa's Code`_ attempted to continue the maintenance of
-the code, first by fixing minor issues regarding ncurses.
+the code, first by fixing minor issues regarding ncurses. As of December, 2015,
+it conforms to C99.
 
 .. _Grandpa's Code: https://bitbucket.org/grandpas/code
 

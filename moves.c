@@ -28,6 +28,7 @@
 ** +-----------------------------------------------------------------------+ */
 
 #include <stdio.h>
+#include <stdlib.h>
 #include "tictac2.h"
 #include "moves.h"
 #include "screen.h"
@@ -70,14 +71,14 @@ int checkwin(char *field)
 {
    int tmp;   
 
-   if ( tmp=checkocc(0,1,2,field) ) return tmp;
-   else if ( tmp=checkocc(3,4,5,field) ) return tmp;
-   else if ( tmp=checkocc(6,7,8,field) ) return tmp;
-   else if ( tmp=checkocc(0,3,6,field) ) return tmp;
-   else if ( tmp=checkocc(1,4,7,field) ) return tmp;
-   else if ( tmp=checkocc(2,5,8,field) ) return tmp;
-   else if ( tmp=checkocc(0,4,8,field) ) return tmp;
-   else if ( tmp=checkocc(2,4,6,field) ) return tmp;
+   if ( ( tmp=checkocc(0,1,2,field) ) ) return tmp;
+   else if ( ( tmp=checkocc(3,4,5,field) ) ) return tmp;
+   else if ( ( tmp=checkocc(6,7,8,field) ) ) return tmp;
+   else if ( ( tmp=checkocc(0,3,6,field) ) ) return tmp;
+   else if ( ( tmp=checkocc(1,4,7,field) ) ) return tmp;
+   else if ( ( tmp=checkocc(2,5,8,field) ) ) return tmp;
+   else if ( ( tmp=checkocc(0,4,8,field) ) ) return tmp;
+   else if ( ( tmp=checkocc(2,4,6,field) ) ) return tmp;
    else if ( field[0]&&field[1]&&field[2]&&field[3]&&field[4]&&field[5]&&
        field[6]&&field[7]&&field[8] ) return 3;
    else return 0;

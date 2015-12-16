@@ -101,8 +101,7 @@ void writeo(int x,int y)
 **
 */
 void setup_terminal_stuff()  {
-  char s;
-  int i=0,p=0;
+  unsigned int i=0,p=0;
 
   initscr();
   refresh();

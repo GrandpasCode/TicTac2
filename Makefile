@@ -5,7 +5,8 @@ LIBDIR  = $(DESTDIR)/lib
 MANDIR  = /usr/man/man6
 
 CC     ?= gcc
-CFLAGS ?= -O
+CFLAGS ?= -g -O2
+CFLAGS += -std=c99 -Wall -Wextra
 CFLAGS += $(shell ncurses5-config --cflags)
 LIBS   += $(shell ncurses5-config --libs)
 

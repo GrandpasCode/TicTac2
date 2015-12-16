@@ -29,6 +29,8 @@
 ** +-----------------------------------------------------------------------+ */
 
 #include <stdio.h>
+#include <stdlib.h>
+#include <strings.h>
 #include <ncurses.h>
 #include "tictac2.h"
 #include "screen.h"
@@ -37,9 +39,9 @@
 void usage_exit();
 void show_gnu_license();
 
-void main(int argc, char *argv[] )
+int main(int argc, char *argv[] )
 {
-   int gameover=0,i;
+   int gameover=0;
    player player1 = { HUMAN_YOU, 1 };
    player player2 = { UNDEFINED, 10 };
    char field[9] = {0,0,0,0,0,0,0,0,0}; 
@@ -67,10 +69,10 @@ void main(int argc, char *argv[] )
    while (1)  {
      getmove(player1, field);  
      refresh_board(field);
-     if ( gameover=checkwin(field) ) break;  
+     if ( ( gameover=checkwin(field) ) ) break;  
      getmove(player2, field);  
      refresh_board(field);
-     if ( gameover=checkwin(field) )  break; 
+     if ( ( gameover=checkwin(field) ) )  break; 
    
    }
    if ( gameover==3 )
