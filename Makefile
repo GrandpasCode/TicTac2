@@ -27,6 +27,11 @@ install: all
 	install -c -o root -g root -m 444 $(PROG).6 $(MANDIR)
 .PHONY: install
 
+uninstall:
+	$(RM) $(DESTDIR)/$(PROG)
+	$(RM) $(MANDIR)/$(PROG).6
+.PHONY: uninstall
+
 clean:
 	$(RM) $(PROG) $(OBJS)
 .PHONY: clean
