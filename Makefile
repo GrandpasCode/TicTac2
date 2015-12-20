@@ -8,19 +8,16 @@ CC     ?= gcc
 CFLAGS ?= -g -O2
 CFLAGS += -std=c99 -Wall -Wextra
 CFLAGS += $(shell ncurses5-config --cflags)
-LIBS   += $(shell ncurses5-config --libs)
+LDLIBS += $(shell ncurses5-config --libs)
 
 SRCS = $(wildcard *.c)
 OBJS = $(SRCS:.c=.o)
-DEPS = tictac2.h
+DEPS = .depends
 
-all: $(PROG)
+all: $(DEPS) $(PROG)
 .PHONY: all
 
 $(PROG): $(OBJS)
-	$(CC) -o $@ $^ $(CFLAGS) $(LIBS)
-
-%.o: %.c $(DEPS)
 
 install: all
 	install -c -o bin -g root -m 755 $(PROG) $(DESTDIR)
@@ -35,3 +32,14 @@ uninstall:
 clean:
 	$(RM) $(PROG) $(OBJS)
 .PHONY: clean
+
+depend:
+	$(RM) $(DEPS)
+	make $(DEPS)
+.PHONY: depend
+
+$(DEPS):
+	touch $(DEPS)
+	makedepend -Y -f $(DEPS) -- $(CFLAGS) $(CPPFLAGS) -- $(SRCS) >&/dev/null
+
+sinclude $(DEPS)
